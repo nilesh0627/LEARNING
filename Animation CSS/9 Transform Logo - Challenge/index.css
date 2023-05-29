@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	background: #242423;
+}
+
+.box {
+	height: 30px;
+	width: 30px;
+
+	animation-name: transform;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes transform {
+	100% {
+		transform: translate(50vw, 50vh) scaleX(10) skewY(60deg);
+	}
+}
+
+
+.box-red {
+	background: #ff4d4d;
+    margin: 0;
+}
+
+.box-blue {
+	background: #738cff;
+    margin: 0;
+}
+
+.box-green {
+	background: #46ff36;
+    margin: 0;
+}
+
+.box-orange {
+	background: #ffaf24;
+    margin: 0;
+}

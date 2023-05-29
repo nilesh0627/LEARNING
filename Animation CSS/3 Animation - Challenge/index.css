@@ -1,0 +1,61 @@
+body {
+	margin: 0;
+}
+
+.image-wrapper {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: red;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+    animation-name: expand-fade-in;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes expand-fade-in {
+    from {
+        opacity: 0;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.title {
+	font-size: 4em;
+	text-transform: uppercase;
+	margin: 0;
+	font-family: Sen;
+	text-transform: uppercase;
+	text-align: center;
+
+    /* First Set the opacity to 0(zero) then set it to 1 through keyframes to animate */
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

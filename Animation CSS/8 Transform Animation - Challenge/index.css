@@ -1,0 +1,27 @@
+.box {
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed; */
+    width: 50px;
+    height: 50px;
+    background: red;
+    border: 1px solid black;
+
+    animation-name: transform;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes transform {
+    100% {
+        transform: scale(0.5) translateX(50px) rotate(45deg);
+    }
+}
+
+
+/* animation lasts 2 sec and runs infinitely */
+/* Make the box size half */
+/* Translate 50px to right and 0 to down */
+/* Rotate by 45 deg */
+/*  */

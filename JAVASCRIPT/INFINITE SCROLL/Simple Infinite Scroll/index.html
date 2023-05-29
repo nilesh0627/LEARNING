@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Scroll</title>
+    <style>
+        body div {
+            height: 50vh;
+        }
+
+        body div:nth-child(even){
+          background-color: teal;
+        }
+
+        body div:nth-child(odd){
+          background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div>Test</div>
+    <div>Test</div>
+    <div>Test</div>
+    <script>
+        document.addEventListener('scroll', ()=>{
+            // the bottom property will be window-relative coordinate of the document bottom.
+            const windowRelativeBottom= document.documentElement.getBoundingClientRect().bottom;
+
+            console.log(windowRelativeBottom+ '  '+ document.documentElement.clientHeight)
+
+            // if the user hasn't scrolled far enough 
+            if(windowRelativeBottom > document.documentElement.clientHeight) return
+
+            document.body.insertAdjacentHTML('beforeend','<div>Test</div>')
+        })
+    </script>
+</body>
+</html>

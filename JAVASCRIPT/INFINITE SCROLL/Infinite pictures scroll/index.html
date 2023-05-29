@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doggos</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        // API URL: 'https://dog.ceo/api/breeds/image/random'
+        const container= document.querySelector('.container');
+        const URL = 'https://dog.ceo/api/breeds/image/random';
+
+        function populateImages(numImages= 20) {
+            while(numImages){
+                fetch(URL).then(res=> res.json()).then((res)=> {
+                    const imgElm= document.createElement('img');
+                    imgElm.src= res.message
+                    imgElm.alt= 'A Smiling DOG'
+                    container.appendChild(imgElm)
+                })
+                numImages--
+            }
+        }
+
+        populateImages(30)
+
+        document.addEventListener('scroll', ()=>{
+            // the bottom property will be window-relative coordinate of the document bottom.
+            const windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+
+            // if the user hasn't scrolled far enough 
+            if(windowRelativeBottom > document.documentElement.clientHeight) return;
+
+            // if scrollbar hits bottom, populate images
+            populateImages();
+        })
+        populateImages();
+    </script>
+</body>
+</html>

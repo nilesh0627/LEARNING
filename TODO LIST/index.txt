@@ -1,0 +1,67 @@
+Pending:
+1. Service Worker
+2. Web Worker
+3. Redux MiddleWare 
+    - any custom middleware you have written
+4. React —> Philip Youtube Channel
+    - Why we use it
+    - How diffing algorithm works
+    - Why shallow copy is faster than deep copy
+    - https://www.freecodecamp.org/news/react-under-the-hood/
+    - 
+5. Webpack (in detail)
+6. How do you optimise performance of your react app —> apart from callback and memo
+7. How to improve page performance and optimisation —> tools and technology we use to improve loading time of page (ex: web vital)
+8. Server Side Rendering (SSR). How it works
+9. 50 components are getting loaded on page load—> how to divide into smaller chunks and improve the web page loading performance
+10. Dev —> devops
+    - What all things we setup in server for running our react application
+11. ES6 new features
+12. Micro-Frontend Architecture
+13. Localisation vs Accessibility
+14. Every 5 minutes, my access token will expire. But I don’t want my user to redirect to login page after every 5 minutes if he is logged in. How will you achieve this.
+15. How to implement Multi-Lingual website ? —> Switch to French/English/Hindi.
+16.  Javascript Sort function
+17. SVG
+18. Strict Mode
+19. Debouncing vs Throttling —> https://medium.com/nerd-for-tech/debouncing-throttling-in-javascript-d36ace200cea
+20. Clone Object JS code
+21. XSS attacks
+22. Web Accessibility
+23. 
+
+
+P1:
+1. Server Side Rendering
+2. SVG
+3. Code splitting
+4. Web Optimisation Techniques and how do you measure performance and what is lighthouse and how do you identify if a web page has problems and have you measured the web vitals
+5. Splash screen and lazy loading —> how do you implement it
+6. Progressive web app (PWA)
+7. Client level instrumentation and server level instrumentation
+8. Accessibility, Scalability
+9. Block diagram of previous project
+10. 
+
+
+Completed:
+1. this in javascript —> https://www.vojtechruzicka.com/javascript-this-keyword/
+2. Polyfill for map, filter, reduce, bind etc.
+3. Event Questions (with examples) —> Akshay YT
+    - Event Bubbling
+    - Event Capturing
+    - Event Propagation
+    - Event Delegation
+    - event.target vs event.currentTarget
+4. Optional Props in component —> Prop Validation for optional props in PropTypes —> (define default props and then validate through propTypes)
+5. Axios interceptors —> https://css-tricks.com/stay-dry-using-axios-for-api-requests/
+6. Javascript Design Patterns —> WebDev Simplified YT Channel
+7. Async vs Defer
+8. Memory leaks in JS/React
+    - Ex: Can’t perform state updates on an unmounted component —> https://dev.to/jeremiahjacinth13/memory-leaks-how-to-avoid-them-in-a-react-app-1g5e
+9. Synthetic events —> https://www.geeksforgeeks.org/what-are-synthetic-events-in-reactjs/
+10. React Portal —> https://www.geeksforgeeks.org/reactjs-portals/
+11. Context API —> https://dev.to/anuraggharat/how-to-use-react-context-api-5a6a
+12. Generators and iterators —> https://dev.to/lydiahallie/javascript-visualized-generators-and-iterators-e36
+13. 
+

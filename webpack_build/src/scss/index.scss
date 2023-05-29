@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .child {
+        padding: 15px;
+        border: 1px solid teal;
+    }
+}
