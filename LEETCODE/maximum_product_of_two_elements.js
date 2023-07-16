@@ -1,5 +1,7 @@
 /*Idea is to use bubble sort to find first two highest elements and return 
 their prouct as give is : Elements of the array will always be +ve */
+
+console.log('adding a console');
 function getMaximumProduct(arr){
     for(let i=0;i<2;i++){
         let max=0
