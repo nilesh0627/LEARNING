@@ -17,8 +17,10 @@ input.addEventListener('input', (e) => {
 function debounce(callback, delay = 250) {
     let timer;
     return function (...args) {
+        // if timer exists that means something is in queue to be executed so just clear that thing 
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
+            // below will be executed once delay is completed.
             callback.apply(this, args)
         }, delay);
     }
