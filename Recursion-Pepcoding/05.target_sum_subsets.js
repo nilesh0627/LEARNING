@@ -55,6 +55,9 @@ function printSubsetsTargetSum(
   currList = [],
   currSum = 0
 ) {
+  // Base case: when we've considered all elements.
+  // If the current sum matches the target, print the collected subset.
+  // Then return to stop further recursion on this path.
   if (index === arr.length) {
     if (currSum === target) {
       console.log(currList);
