@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "learning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilesh0627/LEARNING.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilesh0627/LEARNING/issues"
+  },
+  "homepage": "https://github.com/nilesh0627/LEARNING#readme",
+  "description": "",
+  "dependencies": {
+    "jsdom": "^27.3.0"
+  }
+}
