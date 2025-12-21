@@ -2,37 +2,33 @@
 Implement getElementsByClassName
 
 Problem Statement:
-Write a function `getElementsByClassName(node, classNames)` that, given a DOM node and a string of space-separated class names, returns an array of all descendant elements (including the node itself) that contain **all** the specified class names.
+Implement a pure function `getElementsByClassName(element, classNames)` that takes in a DOM element and a string of one or more class names (separated by whitespace), and returns an array of all descendant elements (not including the element itself) that contain **all** the specified class names.
 
-Input:
-- node: The root DOM node to start searching from.
-- classNames: A string of space-separated class names to match.
-
-Output:
-- An array of DOM elements that contain all the specified class names.
+Requirements:
+- Only descendants of the given element are searched, not the element itself.
+- Return an array of Elements, not an HTMLCollection.
+- Do **not** use `document.querySelectorAll()` or similar DOM query methods.
 
 Examples:
-const node1 = new JSDOM(`
-  <div class="foo bar baz">
+
+const doc = new DOMParser().parseFromString(
+  `<div class="foo bar baz">
     <span class="bar baz">Span</span>
     <p class="foo baz">Paragraph</p>
     <div class="foo bar"></div>
-  </div>
-`).window.document.body.children[0];
+  </div>`,
+  'text/html',
+);
 
-getElementsByClassName(node1, "foo bar");
+getElementsByClassName(doc.body, 'foo bar');
 // Returns: [<div class="foo bar baz">...</div>, <div class="foo bar"></div>]
-
-const node2 = new JSDOM(`<div class="foo"></div>`).window.document.body.children[0];
-getElementsByClassName(node2, "foo");
-// Returns: [<div class="foo"></div>]
 
 ----------------------------------------------------------
 Approach Explanation (Levels and Options):
 
 Level:
-- Each recursive call represents a level in the traversal tree.
-- At each level, you are visiting a DOM node.
+- Each recursive call represents a level in the DOM traversal tree.
+- At each level, you are visiting a descendant node.
 
 Options:
 - For each node:
@@ -42,13 +38,13 @@ Options:
 
 Recursion:
 - For each child node, make a recursive call to continue the search.
-- This explores all descendants of the root node.
+- This explores all descendants of the root element.
 
 Base Case:
 - If the node has no children, return (end recursion for that branch).
 
 Summary of Approach:
-1. Start at the root node.
+1. Start at the root element's children.
 2. At each node (level):
     - Check if it matches all class names (option 1).
     - Recursively traverse each child (option 2).
@@ -71,7 +67,9 @@ function getElementsByClassName(node, classNames) {
       traverse(child);
     }
   }
-  traverse(node);
+  for (let child of node.children || []) {
+    traverse(child);
+  }
   return res;
 }
 
@@ -81,7 +79,7 @@ const node1 = new JSDOM(
     <p class="foo baz">Paragraph</p>
     <div class="foo bar"></div>
   </div>`
-).window.document.body.children[0];
+).window.document.body;
 
 const elements1 = getElementsByClassName(node1, "foo bar");
 for (const el of elements1) {
@@ -91,8 +89,7 @@ for (const el of elements1) {
 
 console.log("*******************************************************");
 
-const node2 = new JSDOM(`<div class="foo"></div>`).window.document.body
-  .children[0];
+const node2 = new JSDOM(`<div class="foo"></div>`).window.document.body;
 
 const elements2 = getElementsByClassName(node2, "foo");
 
