@@ -39,38 +39,15 @@ Gaming: Limiting how many times a player can fire a weapon per second (rate of f
       throttleFn(e.target.value);
     });
 
-    function throttle(func, wait = 1000) {
-      let timerId = null;
-      let lastArgs = null;
-      let lastContext = null;
-
-      const runTimer = () => {
-        if (lastArgs) {
-          // If there are pending arguments, execute them
-          func.apply(lastContext, lastArgs);
-          // Reset arguments so we don't double-trigger
-          lastArgs = null;
-          lastContext = null;
-          // Start a new timer to "lock" the throttle for another 'wait' period
-          timerId = setTimeout(runTimer, wait);
-        } else {
-          // No pending calls, clear the timer ID
-          timerId = null;
-        }
-      };
-
-      return function (...args) {
-        if (timerId) {
-          // Currently in a wait period, just save the latest args
-          lastArgs = args;
-          lastContext = this;
-        } else {
-          // Not in a wait period, execute immediately
+    const throttle = function (func, delay) {
+      let flag = true;
+      return function call(...args) {
+        if (flag) {
           func.apply(this, args);
-          // Start the lockout period
-          timerId = setTimeout(runTimer, wait);
+          flag = false;
+          setTimeout(() => (flag = true), delay);
         }
       };
-    }
+    };
   </script>
 </html>
