@@ -1,0 +1,53 @@
+<!-- Debouncing ensures that a function is only called after a certain amount of time has passed since the last time it was invoked.
+
+Analogy: An elevator. The elevator door waits for a few seconds after the last person gets in before it actually closes and moves. If another person steps in during that wait, the timer resets.
+
+Best for: * Search bars: You don't want to call an API on every single keystroke; you wait until the user finishes typing.
+
+Window Resizing: Waiting until the user stops dragging the window corner to recalculate the layout. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debounce</title>
+  </head>
+  <body>
+    <input type="text" />
+    <div>
+      <div>
+        <b>Default: </b>
+        <span id="default"></span>
+      </div>
+      <div>
+        <b>Debounce: </b>
+        <span id="debounce"></span>
+      </div>
+    </div>
+  </body>
+  <script>
+    const input = document.querySelector("input");
+    const defaultText = document.querySelector("#default");
+    const debouncedText = document.querySelector("#debounce");
+
+    function debounce(fn, delay = 250) {
+      let timerId;
+      return function (...args) {
+        if (timerId) clearTimeout(timerId);
+        const context = this;
+        timerId = setTimeout(() => {
+          fn.apply(context, args);
+        }, delay);
+      };
+    }
+
+    const debouncedFn = debounce(
+      (value) => (debouncedText.textContent = value)
+    );
+    input.addEventListener("input", (e) => {
+      defaultText.textContent = e.target.value;
+      debouncedFn(e.target.value);
+    });
+  </script>
+</html>
