@@ -32,16 +32,9 @@ Gaming: Limiting how many times a player can fire a weapon per second (rate of f
     const defaultText = document.querySelector("#default");
     const throttleText = document.querySelector("#throttle");
 
-    const throttleFn = throttle((value) => (throttleText.textContent = value));
-
-    input.addEventListener("input", (e) => {
-      defaultText.textContent = e.target.value;
-      throttleFn(e.target.value);
-    });
-
-    const throttle = function (func, delay) {
+    const throttle = function (func, delay = 1000) {
       let flag = true;
-      return function call(...args) {
+      return function (...args) {
         if (flag) {
           func.apply(this, args);
           flag = false;
@@ -49,5 +42,12 @@ Gaming: Limiting how many times a player can fire a weapon per second (rate of f
         }
       };
     };
+
+    const throttleFn = throttle((value) => (throttleText.textContent = value));
+
+    input.addEventListener("input", (e) => {
+      defaultText.textContent = e.target.value;
+      throttleFn(e.target.value);
+    });
   </script>
 </html>
