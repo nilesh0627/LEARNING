@@ -1,18 +1,20 @@
 /*
  * ==========================================
- * PROBLEM STATEMENT: Maximum in a Generic Tree
+ * PROBLEM STATEMENT: Height of a Generic Tree
  * ==========================================
  * 1. You are given the root of a Generic Tree.
- * 2. You are required to find and return the node with
- * the maximum value in the entire tree.
- * 3. Assume the tree contains at least one node.
+ * 2. You are required to calculate and return the height
+ * of the tree.
+ * 3. Height is defined in terms of EDGES:
+ * - The distance from the root to the deepest node.
+ * - A single node (root only) has a height of 0.
+ * - Height = Max depth among all nodes.
  *
  * ------------------------------------------
  * INPUT FORMAT:
  * ------------------------------------------
  * An Euler Path Array (Pre-order with -1 for backtracking).
  * Example: [10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1]
- * 
  * 
        [10]
       /  |  \
@@ -27,8 +29,8 @@
  * ------------------------------------------
  * OUTPUT FORMAT:
  * ------------------------------------------
- * A single integer representing the maximum node value found.
- * Example Output: 120
+ * A single integer representing the height (number of edges).
+ * Example Output: 3
  * ==========================================
  */
 
@@ -88,18 +90,10 @@ const root = {
 };
 
 /**
- * Function to find the maximum value in a Generic Tree
+ * Function to calculate the height of a Generic Tree
  * @param {Node} node - The root of the tree
- * @returns {number} - The maximum value
+ * @returns {number} - Height of the tree in edges
  */
-function maxNode(node) {
+function height(node) {
   // Your code here
-  let max = node.value;
-  for (let child of node.children) {
-    let childMax = maxNode(child);
-    max = Math.max(max, childMax);
-  }
-  return max;
 }
-
-console.log(maxNode(root));
