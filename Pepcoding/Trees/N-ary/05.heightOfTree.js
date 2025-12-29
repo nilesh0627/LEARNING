@@ -94,6 +94,13 @@ const root = {
  * @param {Node} node - The root of the tree
  * @returns {number} - Height of the tree in edges
  */
-function height(node) {
+function heightOfTree(node) {
   // Your code here
+  let height = 0;
+  for (let child of node.children) {
+    let childHeight = heightOfTree(child);
+    height = Math.max(height, childHeight);
+  }
+  return node.children.length > 0 ? height + 1 : height;
 }
+console.log(heightOfTree(root));
