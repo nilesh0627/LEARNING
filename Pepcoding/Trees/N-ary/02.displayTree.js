@@ -40,7 +40,7 @@
  * ==========================================
  */
 
-// root structure for reference (this is how the strcture of tree will look like - check-> 01.constructTree.js)
+// root structure for reference (this is how the strcture of tree will look like after construction from input array - check-> 01.constructTree.js for tree construction from input array)
 const root = {
   value: 10,
   children: [
