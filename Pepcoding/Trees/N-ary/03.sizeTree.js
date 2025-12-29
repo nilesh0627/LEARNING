@@ -22,6 +22,61 @@
  * ==========================================
  */
 
+// root structure for reference (this is how the strcture of tree will look like after construction from input array - check-> 01.constructTree.js for tree construction from input array)
+const root = {
+  value: 10,
+  children: [
+    {
+      value: 20,
+      children: [
+        {
+          value: 50,
+          children: [],
+        },
+        {
+          value: 60,
+          children: [],
+        },
+      ],
+    },
+    {
+      value: 30,
+      children: [
+        {
+          value: 70,
+          children: [],
+        },
+        {
+          value: 80,
+          children: [
+            {
+              value: 110,
+              children: [],
+            },
+            {
+              value: 120,
+              children: [],
+            },
+          ],
+        },
+        {
+          value: 90,
+          children: [],
+        },
+      ],
+    },
+    {
+      value: 40,
+      children: [
+        {
+          value: 100,
+          children: [],
+        },
+      ],
+    },
+  ],
+};
+
 /**
  * Function to calculate the size of a Generic Tree
  * @param {Node} node - The root of the tree
@@ -29,4 +84,11 @@
  */
 function size(node) {
   // Your code here
+  let count = 1;
+  for (let child of node.children) {
+    count += size(child);
+  }
+  return count;
 }
+
+console.log(size(root));
