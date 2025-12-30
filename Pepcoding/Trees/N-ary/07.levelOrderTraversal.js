@@ -74,3 +74,26 @@ function levelOrder(node) {
 }
 
 levelOrder(root);
+
+/**
+    NOTES: LEVEL ORDER TRAVERSAL IN GENERIC TREE
+
+    1. CONCEPT (BFS)
+       - Visit nodes level by level (top to bottom, left to right).
+       - Uses a Queue data structure (FIFO) for implementation.
+
+    2. ALGORITHM (R-P-A)
+       - Remove: Remove the front node from the queue.
+       - Print: Print the data of the removed node.
+       - Add: Add all children of the removed node into the queue.
+
+    3. WORKFLOW
+       - Initialize queue and add the root node.
+       - Run a loop until the queue becomes empty.
+       - Inside the loop, follow the Remove-Print-Add strategy.
+
+    4. KEY CHARACTERISTICS
+       - Ensures all nodes at depth 'd' are processed before nodes at 'd+1'.
+       - Space complexity depends on the maximum width of the tree.
+       - Time complexity is O(N) as every node is visited once.
+*/
