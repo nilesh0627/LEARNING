@@ -147,9 +147,27 @@ console.log(levelOrderCount(root));
 ==========================================================================
 APPROACH 4: PAIR CLASS (Object Tracking)
 ==========================================================================
-- Logic: Store node and its level depth together in a pair/object.
-- Change: If current node level != previous node level, you've hit a new line.
+- Logic: Wrap each node in an object { node, level } to track depth.
+- Dynamic Growth: Uses 'level' to check if a new sub-array is needed in 'res'.
+- Synchronization: Ensures the 'level' property matches the 'res' index.
 */
 function levelOrderPair(node) {
+  if (!node) return [];
   // Your code here
+  let pq = [],
+    res = [[]];
+  pq.push({ node, level: 1 });
+  while (pq.length > 0) {
+    const curr = pq.shift();
+    const level = curr.level;
+    if (level > res.length) {
+      res.push([]);
+    }
+    res[level - 1].push(curr.node.value);
+    for (let i = 0; i < curr.node.children.length; i++) {
+      pq.push({ node: curr.node.children[i], level: level + 1 });
+    }
+  }
+  return res;
 }
+console.log(levelOrderPair(root));
