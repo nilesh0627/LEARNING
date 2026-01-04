@@ -36,8 +36,8 @@ These two trees are mirrors because:
         [20]   [30]   [40]                          [D]   [C]   [B]
        /    \  / | \    |                            |   / | \  /  \
       50    60 70 80 90 [100]                      [J]  G  H  I F   E
-               /  \                                       /  \
-             110  120                                    L    K
+                 /  \                                     /  \
+               110  120                                  L    K
 
 RESULT: true
 */
