@@ -100,7 +100,11 @@ function isBST(node) {
     if any node is greater than max of left side nodes and lesser then min of right side nodes
     then that node statisfies BST condition
     */
-    isBST: node.data > lBSTInfo.max && node.data < rBSTInfo.min,
+    isBST:
+      lBSTInfo.isBST &&
+      rBSTInfo.isBST &&
+      node.data > lBSTInfo.max &&
+      node.data < rBSTInfo.min,
     min,
     max,
   };
@@ -134,7 +138,7 @@ Notes for Is Binary Search Tree (BST) - Pepcoding Approach
      - The minimum value for the current subtree: `min = Math.min(lBSTInfo.min, rBSTInfo.min, node.data)`
      - The maximum value for the current subtree: `max = Math.max(lBSTInfo.max, rBSTInfo.max, node.data)`
      - Whether the current subtree is a BST:
-       `isBST: node.data > lBSTInfo.max && node.data < rBSTInfo.min`
+       `isBST: lBSTInfo.isBST && rBSTInfo.isBST && node.data > lBSTInfo.max && node.data < rBSTInfo.min`
        (This ensures all values in the left subtree are less, and all in the right are greater.)
 
 - Why use min and max from subtrees?
