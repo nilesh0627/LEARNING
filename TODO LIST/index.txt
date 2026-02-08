@@ -65,3 +65,16 @@ Completed:
 12. Generators and iterators —> https://dev.to/lydiahallie/javascript-visualized-generators-and-iterators-e36
 13. 
 
+
+
+
+Leetcode Todo's:
+Recursion + Backtracking
+Generic Tree (N-ary Tree)
+Binary Tree
+Binary Search Tree
+Heaps + Priority queue
+Hashmaps and Heaps - Level 1
+Hashmaps and Heaps - Level 2
+Graph
+DP
