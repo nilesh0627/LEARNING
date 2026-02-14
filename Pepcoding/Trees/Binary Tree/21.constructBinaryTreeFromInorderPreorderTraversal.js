@@ -72,6 +72,17 @@ function buildTree(preorder, inorder) {
   return root;
 }
 
+/* Preorder -> root-left-right
+ inorder -> left-root-right
+ 0th index of preorder will always be root node. 
+ 
+ idea is to find the root node first from inorder. so whatever is on left side of inorder will exist in left side
+ and whatever is on right side of root will exits on right side of root
+
+ so now find the new array of preorder and inorder for both left and right side list. repeat this process recursively.
+ attach the returned left/right nodes to root.left and root.right
+*/
+
 // Driver code to test logic
 const newRoot = buildTree(preorder, inorder);
 console.dir(newRoot, { depth: null, colors: true });
