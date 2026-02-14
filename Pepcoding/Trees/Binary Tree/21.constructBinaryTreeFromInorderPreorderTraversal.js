@@ -61,9 +61,11 @@ function buildTree(preorder, inorder) {
   const rootData = preorder[0];
   let root = new Node(rootData);
   const rootIndex = inorder.findIndex((data) => data === rootData);
+
   const leftInorder = inorder.slice(0, rootIndex);
-  const leftPreOrder = preorder.slice(1, rootIndex + 1);
   const rightInorder = inorder.slice(rootIndex + 1);
+
+  const leftPreOrder = preorder.slice(1, rootIndex + 1);
   const rightPreorder = preorder.slice(rootIndex + 1);
 
   root.left = buildTree(leftPreOrder, leftInorder);
